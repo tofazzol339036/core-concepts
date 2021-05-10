@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 function App() {
@@ -19,11 +18,11 @@ function App() {
         <header className="App-header">
         <Counter></Counter>
         <Users></Users>
+        <Users></Users>
 
         <Product product={products[0]}></Product>
         <Product product={products[1]}></Product>
         <Product product={products[2]}></Product>
-        
         <Person person={persons[0]}></Person>
         <Person person={persons[1]}></Person>
         <Person person={persons[2]}></Person>
@@ -33,12 +32,19 @@ function App() {
   );
 }
 function Counter(){
-  const [count, setCount] = useState(0);
+  const [count , setCount] = useState(0);
+  const buttonDecrease = () => {
+    if(count > 0){
+      setCount(count-1);
+    }else{
+      setCount(0)
+    }
+  }
   return(
     <div>
       <h1>Count: {count}</h1>
       <button onClick={() => setCount(count + 1)}>Increase</button>
-      <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={buttonDecrease}>Decrease</button>
     </div>
   )
 }
